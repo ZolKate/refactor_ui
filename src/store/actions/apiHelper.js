@@ -3,7 +3,6 @@ export default {
     async fetchData(ctx, { url }) {
         const res = await fetch(url);
         const answer = await res.json();
-        console.log(answer)
         if(!res.ok){
             throw new Error(answer.error_text)
         }

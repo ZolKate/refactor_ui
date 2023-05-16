@@ -6,6 +6,7 @@
         :item="notify"
       />
     </v-container>
+    <!-- <transition name="layout" :duration="2000"/> -->
     <component :is="layout"/>
   </v-app>
 </template>
@@ -15,7 +16,7 @@ import { mapActions, mapGetters } from 'vuex'
 import Toast from './components/UI/Toast.vue';
 import LoadingLayout from './Layout/LoadingLayout.vue';
 import NoLicenseLayout from './Layout/NoLicenseLayout.vue';
-// import LoginLayout from './Layout/LoginLayout.vue';
+import LoginLayout from './Layout/LoginLayout.vue';
 import MainLayout from './Layout/MainLayout.vue';
 
 export default {
@@ -24,9 +25,12 @@ export default {
     loading: true
   }),
   computed:{
-    ...mapGetters({ valid: "getLicenseValid", notifies: "getNotifies" }),
+    ...mapGetters({ valid: "getLicenseValid", notifies: "getNotifies", userInfo: "getUser" }),
+    user(){
+      return this.userInfo !== {}
+    },
     layout(){
-      return this.loading ? 'LoadingLayout' : this.valid ? 'MainLayout' : 'NoLicenseLayout'
+      return this.loading ? 'LoadingLayout' : this.valid ? this.user ? 'MainLayout' : 'LoginLayout' : 'NoLicenseLayout'
     }
   },
   methods: mapActions(["fetchLicense"]),
@@ -34,6 +38,6 @@ export default {
     await this.fetchLicense();
     this.loading = false;
   },
-  components:{ NoLicenseLayout, LoadingLayout, MainLayout, Toast }
+  components:{ NoLicenseLayout, LoadingLayout, MainLayout, LoginLayout, Toast }
 };
 </script>

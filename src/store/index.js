@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import auth  from './modules/auth'
 import error from './modules/error'
 import notify from './modules/notify'
 import orders from './modules/orders'
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     ...apiHelper
   },
   modules: {
+    auth,
     error,
     notify,
     orders,
