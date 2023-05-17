@@ -27,7 +27,7 @@ export default {
   computed:{
     ...mapGetters({ valid: "getLicenseValid", notifies: "getNotifies", userInfo: "getUser" }),
     user(){
-      return !Object.keys(this.userInfo).length === 0
+      return Object.keys(this.userInfo).length !== 0
     },
     layout(){
       return this.loading ? 'LoadingLayout' : this.valid ? this.user ? 'MainLayout' : 'LoginLayout' : 'NoLicenseLayout'

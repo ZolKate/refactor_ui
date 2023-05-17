@@ -12,7 +12,6 @@ export default{
     },
     mutations:{
         updateLicense(state, license){
-            console.log(license)
             state.license = license;
         }
     },
