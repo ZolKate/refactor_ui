@@ -4,6 +4,7 @@
         <v-app-bar
             color="green"
             app
+            dark
         >
             <v-app-bar-nav-icon  @click="drawer = true"></v-app-bar-nav-icon>
             <v-app-bar-title>RK7 Orders</v-app-bar-title>

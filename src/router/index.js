@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/orders'
+    redirect: '/orders',
   },
   {
     path: '/orders',
@@ -18,6 +18,11 @@ const routes = [
     path: '/config',
     name: 'Config',
     component: () => import('../views/Config.vue')
+  },
+  {
+    path: '/:catchAll(.*)*',
+    name: "PageNotFound",
+    component: () => import('../views/PageNotFound.vue')
   }
 ]
 
