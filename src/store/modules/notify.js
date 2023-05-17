@@ -1,7 +1,11 @@
 export default{
     actions:{
-        showToast(ctx, payload){
-            ctx.commit("updateNotify", payload)
+        async showToast(ctx, payload){
+           await ctx.commit("updateNotify", payload)
+        },
+
+        async clearToast(ctx, payload){
+            await ctx.commit("clearNotify", payload)
         }
     },
     mutations:{

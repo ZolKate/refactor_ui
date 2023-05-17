@@ -3,8 +3,7 @@ export default{
         async fetchLicense(ctx){
             try{
                 let license = await ctx.dispatch("fetchData", { url: "http://127.0.0.1:8000/license" })
-                ctx.commit('updateLicense', license);
-                
+                ctx.commit('updateLicense', license);    
             }catch(err){
                 await ctx.dispatch("setError", err.message)
             }

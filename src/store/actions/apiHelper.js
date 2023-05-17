@@ -1,12 +1,16 @@
 
 export default {
     async fetchData(ctx, { url }) {
-        const res = await fetch(url);
-        const answer = await res.json();
-        if(!res.ok){
-            throw new Error(answer.error_text)
+        try{
+            const res = await fetch(url);
+            const answer = await res.json();
+            if(!res.ok){
+                throw new Error(answer.error_text)
+            }
+            return answer
+        }catch(err){
+            throw new Error(err.message)
         }
-        return answer
     },
 
     async postData(ctx, { url, data }){

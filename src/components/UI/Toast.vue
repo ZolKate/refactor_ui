@@ -10,16 +10,16 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 export default{
     data: () => ({
         snackbar: false,
     }),
     props: ["item"],
     methods:{
-        ...mapMutations(["clearNotify"]),
+        ...mapActions(["clearToast"]),
         removeToast(){
-            this.clearNotify(this.item.id)
+            this.clearToast(this.item.id)
         }
     },
     mounted(){
