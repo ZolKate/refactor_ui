@@ -1,7 +1,6 @@
 export default{
     actions:{
         showToast(ctx, payload){
-            console.log(payload)
             ctx.commit("updateNotify", payload)
         }
     },

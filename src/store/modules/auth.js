@@ -3,8 +3,9 @@ export default{
         async logIn(ctx, payload){
             if(payload.login === "admin" && payload.password === "admin"){
                 await ctx.commit("setUser", payload)
-            }else{
-                await ctx.dispatch("setError", "Логин или пароль неверны")
+            }else
+            {
+                await ctx.dispatch("setError", new Error("Логин или пароль неверны"))
             }
         }
     },

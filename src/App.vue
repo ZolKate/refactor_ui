@@ -6,7 +6,6 @@
         :item="notify"
       />
     </v-container>
-    <!-- <transition name="layout" :duration="2000"/> -->
     <component :is="layout"/>
   </v-app>
 </template>
