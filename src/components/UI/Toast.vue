@@ -3,6 +3,7 @@
         v-model="snackbar"
         :timeout="item.timeout"
         :color = "item.color"
+        class="toast"
     >
         {{ item.message }}
     </v-snackbar>
@@ -33,3 +34,10 @@ export default{
     },
 }
 </script>
+
+<style lang="scss">
+    .toast{
+        position: static !important;
+        height: auto !important;
+    }
+</style>

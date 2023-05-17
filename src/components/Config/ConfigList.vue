@@ -1,11 +1,6 @@
 <template>
     <Loading v-if="loading" text="Загрузка настроек..."/>
     <v-container v-else>
-        <Toast 
-            v-for="notify in notifies"
-            :key="notify.id" 
-            :item="notify"
-        />
         <v-card>
             <v-card-text>
                 <v-form ref="form" @submit.prevent="onSubmit">
@@ -28,7 +23,6 @@
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 import InputConfig from './InputConfig.vue';
 import Loading from '../../views/Loading.vue';
-import Toast from '../UI/Toast.vue';
 
 export default {
     data: () => ({
@@ -77,6 +71,6 @@ export default {
         await this.fetchConfig();
         this.loading = false;
     },
-    components: { InputConfig, Loading, Toast }
+    components: { InputConfig, Loading }
 }
 </script>

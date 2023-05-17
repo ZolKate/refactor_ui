@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container>
+    <v-container class="toast__container">
       <Toast v-for="notify in notifies" 
         :key="notify.id" 
         :item="notify"
@@ -41,3 +41,18 @@ export default {
   components:{ NoLicenseLayout, LoadingLayout, MainLayout, LoginLayout, Toast }
 };
 </script>
+
+
+<style>
+  .toast__container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 344px;
+    padding-top: 64px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+</style>
